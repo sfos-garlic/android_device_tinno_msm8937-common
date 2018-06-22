@@ -241,6 +241,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
+    init.recovery.qcom.rc \
     init.msm.usb.configfs.rc \
     init.qcom.usb.sh \
     init.fpdrv_setprop.sh \
