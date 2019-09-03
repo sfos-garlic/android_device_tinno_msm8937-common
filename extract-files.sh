@@ -44,16 +44,21 @@ function blob_fixup() {
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
-while [ "$1" != "" ]; do
-    case $1 in
-        -n | --no-cleanup )     CLEAN_VENDOR=false
-                                ;;
-        -s | --section )        shift
-                                SECTION=$1
-                                CLEAN_VENDOR=false
-                                ;;
-        * )                     SRC=$1
-                                ;;
+while [ "${#}" -gt 0 ]; do
+    case "${1}" in
+        -n | --no-cleanup )
+            CLEAN_VENDOR=false
+            ;;
+        -k | --kang )
+                KANG="--kang"
+                ;;
+        -s | --section )
+                SECTION="${2}"; shift
+                CLEAN_VENDOR=false
+                ;;
+        * )
+                SRC="${1}"
+                ;;
     esac
     shift
 done
@@ -65,13 +70,15 @@ fi
 # Initialize the helper for common device
 setup_vendor "$DEVICE_COMMON" "$VENDOR_COMMON" "$LINEAGE_ROOT" true "$CLEAN_VENDOR"
 
-extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
+extract "$MY_DIR"/proprietary-files.txt "$SRC" \
+    "${KANG}" --section "${SECTION}"
 
 if [ -s "$MY_DIR"/../../$VENDOR_DEVICE/$DEVICE/proprietary-files.txt ]; then
     # Reinitialize the helper for device
     setup_vendor "$DEVICE" "$VENDOR_DEVICE" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
 
-    extract "$MY_DIR"/../../$VENDOR_DEVICE/$DEVICE/proprietary-files.txt "$SRC" "$SECTION"
+    extract "$MY_DIR"/../../$VENDOR_DEVICE/$DEVICE/proprietary-files.txt "$SRC" \
+    "${KANG}" --section "${SECTION}"
 fi
 
 "$MY_DIR"/setup-makefiles.sh
