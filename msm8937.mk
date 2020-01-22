@@ -464,9 +464,9 @@ PRODUCT_PACKAGES += \
     qti_telephony_utils.xml
 
 
-#PRODUCT_BOOT_JARS += \
+PRODUCT_BOOT_JARS += \
 #    ims-ext-common_system \
-#    telephony-ext
+    telephony-ext
 
 # Tethering
 PRODUCT_PACKAGES += \
