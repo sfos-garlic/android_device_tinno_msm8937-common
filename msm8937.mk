@@ -434,6 +434,10 @@ PRODUCT_PACKAGES += \
 #    ims-ext-common_system \
 #    telephony-ext
 
+# Tethering
+PRODUCT_PACKAGES += \
+    TetheringConfigOverlay
+
 # TextClassifier
 PRODUCT_PACKAGES += \
     textclassifier.smartselection.bundle1
