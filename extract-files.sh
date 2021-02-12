@@ -69,6 +69,7 @@ function blob_fixup() {
         ;;
     vendor/lib/libmmcamera2_stats_modules.so)
         "${PATCHELF}" --remove-needed "libandroid.so" "${2}"
+        "${PATCHELF}" --add-needed "libcamshim.so" "${2}"
         sed -i "s|libgui.so|libfui.so|g" "${2}"
         ;;
     esac
