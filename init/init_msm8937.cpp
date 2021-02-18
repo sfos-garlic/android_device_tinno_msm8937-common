@@ -97,4 +97,7 @@ void vendor_load_properties()
 {
 	LOG(INFO) << "Loading vendor specific properties";
     init_fingerprint_properties();
+
+    // Misc
+    property_override("ro.apex.updatable", "false");
 }
