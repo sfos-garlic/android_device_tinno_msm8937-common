@@ -59,4 +59,7 @@ void property_override(char const prop[], char const value[], bool add = true)
 void vendor_load_properties()
 {
 	LOG(INFO) << "Loading vendor specific properties";
+
+    // Misc
+    property_override("ro.apex.updatable", "false");
 }
