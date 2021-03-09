@@ -452,7 +452,7 @@ on post-fs-data && property:ro.crypto.state=encrypted && property:ro.crypto.type
     chmod 666 /sensorcab/gs_cali_data_drv
     chmod 666 /sensorcab/gyro_cali_data
     chmod 606 /dev/ltr553_ps
-    chmod 777 /system/vendor/bin/mm-audio-ftm
+    chmod 777 /vendor/bin/mm-audio-ftm
 
 
 
@@ -628,7 +628,7 @@ service atfwd /vendor/bin/ATFWD-daemon
     group system radio
     writepid /dev/cpuset/system-background/tasks
 
-service ims_regmanager /system/vendor/bin/exe-ims-regmanagerprocessnative
+service ims_regmanager /vendor/bin/exe-ims-regmanagerprocessnative
     class late_start
     group net_bt_admin inet radio wifi
     disabled
