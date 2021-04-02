@@ -17,6 +17,9 @@
 
 set -e
 
+DEVICE_COMMON=msm8937-common
+VENDOR_COMMON=tinno
+
 INITIAL_COPYRIGHT_YEAR=2018
 
 # Load extract_utils and do some sanity checks
@@ -25,7 +28,7 @@ if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
 LINEAGE_ROOT="$MY_DIR"/../../..
 
-HELPER="$LINEAGE_ROOT"/vendor/lineage/build/tools/extract_utils.sh
+HELPER="$LINEAGE_ROOT"/tools/extract-utils/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
