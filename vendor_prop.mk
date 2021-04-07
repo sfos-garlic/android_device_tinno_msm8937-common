@@ -63,7 +63,8 @@ persist.vendor.camera.display.umax=1920x1080 \
 persist.vendor.camera.stats.test=5 \
 persist.camera.gyro.android=1 \
 persist.camera.is_type=1 \
-persist.camera.time.monotonic=0
+persist.camera.time.monotonic=0 \
+persist.vendor.camera.HAL3.enabled=1
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
