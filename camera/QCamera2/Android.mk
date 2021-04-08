@@ -83,9 +83,11 @@ LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/include \
         $(LOCAL_PATH)/stack/mm-camera-interface/inc \
         $(LOCAL_PATH)/util \
+        $(LOCAL_PATH)/stack/common \
         $(LOCAL_PATH)/HAL3 \
         hardware/qcom/media/libstagefrighthw \
         hardware/qcom/media/mm-core/inc \
+        hardware/qcom/media/msm8996/mm-core/inc \
         $(TARGET_OUT_HEADERS)/mm-camera-lib/cp/prebuilt
 
 LOCAL_HEADER_LIBRARIES += camera_common_headers
