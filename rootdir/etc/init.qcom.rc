@@ -617,6 +617,8 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
+    #Start perf properly
+    setprop vendor.post_boot.parsed 1
 
 service atfwd /system/bin/ATFWD-daemon
     class late_start
