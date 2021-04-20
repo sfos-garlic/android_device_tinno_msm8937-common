@@ -460,3 +460,7 @@ PRODUCT_BOOT_JARS += \
 # Signapk
 PRODUCT_HOST_PACKAGES += \
     signapk
+
+# Custom files
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/customise/hosts:system/etc/hosts
