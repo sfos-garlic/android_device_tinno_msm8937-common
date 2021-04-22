@@ -110,6 +110,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(LOCAL_PATH)/customise/charger/images
 
 # Dex
 ifeq ($(HOST_OS),linux)
