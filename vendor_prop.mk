@@ -66,6 +66,10 @@ persist.camera.is_type=1 \
 persist.camera.time.monotonic=0 \
 persist.vendor.camera.HAL3.enabled=1
 
+# Charger
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.charger.enable_suspend=true
+
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.cne.feature=1
