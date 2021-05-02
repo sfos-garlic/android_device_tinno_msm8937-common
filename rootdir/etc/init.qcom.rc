@@ -382,6 +382,15 @@ on post-fs-data
     mkdir /data/vendor/audio/acdbdata 0770 media audio
     mkdir /data/vendor/audio/acdbdata/delta 0770 media audio
 
+    # Create the directories used by DPM subsystem
+    # msm specific files that need to be created on /data
+    #Create DATAQTI dir for logs
+    mkdir /data/vendor/dataqti 0770 radio radio
+    chmod 0770 /data/vendor/dataqti
+
+on post-fs-data && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    start time_daemon
+
     setprop vold.post_fs_data_done 1
 
     #Create a folder for SRS to be able to create a usercfg file
@@ -458,6 +467,12 @@ on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
     chown media audio /sys/kernel/wcd_cpe0/fw_name
+
+on property:persist.vendor.radio.atfwd.start=false
+    stop vendor.atfwd
+
+on property:vendor.radio.atfwd.start=false
+    stop vendor.atfwd
 
 on property:bluetooth.dun.status=running
     start bt-dun
@@ -545,10 +560,12 @@ service vendor.netmgrd /vendor/bin/netmgrd
     class main
     writepid /dev/cpuset/system-background/tasks
 
+#start dataqti service
 service vendor.dataqti /vendor/bin/qti
     class main
     user radio
-    group radio oem_2901 diag usb net_admin
+    socket qti_dpm_uds_file dgram 660 radio radio
+    group radio oem_2901 diag usb inet
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
@@ -605,7 +622,7 @@ on property:sys.boot_completed=1
     #Start perf properly
     setprop vendor.post_boot.parsed 1
 
-service atfwd /system/bin/ATFWD-daemon
+service atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
@@ -664,6 +681,7 @@ on charger
 
 service time_daemon /vendor/bin/time_daemon
     class main
-    user root
-    group root
+    user system
+    group system
+    capabilities SYS_TIME
     writepid /dev/cpuset/system-background/tasks
