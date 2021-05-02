@@ -121,42 +121,33 @@ service wcnss-service /vendor/bin/wcnss_service
     oneshot
 
 on property:vold.decrypt=trigger_restart_framework
-    start imsstarter
+    start cnss_diag
 
 service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
-    user system
+    user radio
     socket ims_qmid stream 0660 system radio
-    group radio log diag
+    group radio vendor_qti_diag log
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
+# imsdatadaemon starts with root and UID will be downgraded to RADIO.
+service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
     class main
     user system
-    socket ims_datad stream 0660 system radio
-    group system wifi radio inet log diag
+    group radio vendor_qti_diag inet log
     writepid /dev/cpuset/system-background/tasks
-    disabled
-
-on property:vendor.ims.QMI_DAEMON_STATUS=1
-    start vendor.imsdatadaemon
-
-service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
-   class main
-   user system
-   group radio diag inet log
-
-service vendor.imsrcsservice /vendor/bin/imsrcsd
-   class main
-   user system
-   group radio diag inet log
-   writepid /dev/cpuset/system-background/tasks
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
 
+service vendor.imsrcsservice /vendor/bin/imsrcsd
+   class main
+   user radio
+   group radio vendor_qti_diag log inet wakelock
+   writepid /dev/cpuset/system-background/tasks
+
 service ppd /vendor/bin/mm-pp-dpps
-    class hal
+    class late_start
     disabled
     user system
     socket pps stream 0660 system system
@@ -168,7 +159,7 @@ on property:init.svc.surfaceflinger=restarting
 
 on charger
     setprop sys.usb.configfs 0
-    start hvdcp_opti
+    start vendor.hvdcp_opti
     start vendor.power_off_alarm
 
 service adsprpcd /vendor/bin/adsprpcd
@@ -195,7 +186,7 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
-service hvdcp_opti /vendor/bin/hvdcp_opti
+service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     class main
     user root
     group system wakelock

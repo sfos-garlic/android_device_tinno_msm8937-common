@@ -57,7 +57,7 @@ vendor.qcom.bluetooth.soc=smd
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.whatsapp \
 persist.vendor.camera.display.lmax=1280x720 \
 persist.vendor.camera.display.umax=1920x1080 \
 persist.vendor.camera.stats.test=5 \
@@ -72,7 +72,7 @@ ro.charger.enable_suspend=true
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.cne.feature=1
+persist.vendor.cne.feature=1
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -93,9 +93,23 @@ vendor.display.disable_skip_validate=1 \
 ro.opengles.version=196610 \
 ro.qualcomm.cabl=0 \
 ro.vendor.display.cabl=2 \
-ro.sf.lcd_density=441 \
-persist.debug.wfd.enable=1 \
-persist.hwc.enable_vds=1
+ro.sf.lcd_density=441
+
+# DPM
+#system props for the DPM module#
+#0 Disable all DPM feature
+#1 enable fast dormancy (FD)
+#2 enable connection tracking (CT)
+#4 enable network socket request manager (NSRM)
+#8 Enable TCP connection manager (TCM)
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.vendor.dpm.feature=1 \
+persist.vendor.dpmhalservice.enable=1 \
+persist.vendor.dpm.loglevel=0
+
+# DRM
+PRODUCT_PROPERTY_OVERRIDES += \
+drm.service.enabled=true
 
 # FM radio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -161,6 +175,10 @@ ro.emmc_size=16GB
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.qualcomm.cabl=2
 
+# Recovery
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.vendor.recovery_update=false
+
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
 DEVICE_PROVISIONED=1 \
@@ -178,6 +196,11 @@ persist.vendor.radio.custom_ecc=1 \
 persist.vendor.radio.rat_on=combine \
 persist.vendor.radio.sib16_support=1 \
 persist.vendor.radio.force_on_dc=true
+
+# RIL-Radio (IMS)
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
 
 # SVI
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -203,3 +226,11 @@ ro.vendor.qti.sys.fw.use_trim_settings=true
 # Wi-Fi
 PRODUCT_PROPERTY_OVERRIDES += \
 wifi.interface=wlan0
+
+# Wi-Fi Display
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.debug.wfd.enable=1 \
+##property to enable HWC for VDS
+persist.hwc.enable_vds=1 \
+##property to choose between virtual/external wfd display
+persist.sys.wfd.virtual=0
