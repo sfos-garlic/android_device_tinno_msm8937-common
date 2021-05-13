@@ -198,8 +198,9 @@ persist.vendor.radio.sib16_support=1 \
 persist.vendor.radio.force_on_dc=true
 
 # RIL-Radio (IMS)
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.dbg.volte_avail_ovr=1 \
+persist.dbg.vt_avail_ovr=1 \
 persist.dbg.wfc_avail_ovr=1
 
 # SVI
