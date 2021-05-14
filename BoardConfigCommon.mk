@@ -102,11 +102,17 @@ USE_XML_AUDIO_POLICY_CONF := 1
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
+# Bootanimation
+TARGET_BOOTANIMATION_HALF_RES := true
+
 # Camera
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 USE_DEVICE_SPECIFIC_CAMERA := true
+
+# CNE and DPM
+BOARD_USES_QCNE := true
 
 # Dex
 ifeq ($(HOST_OS),linux)
@@ -158,6 +164,9 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Media Extensions
 TARGET_USES_MEDIA_EXTENSIONS := true
 
@@ -183,15 +192,17 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 
-# Power
-TARGET_USES_INTERACTION_BOOST := true
-
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 ifneq ($(WITH_TWRP),true)
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 endif
+
+# RIL
+TARGET_RIL_VARIANT := caf
+TARGET_USES_OLD_MNC_FORMAT := true
+DISABLE_RILD_OEM_HOOK := true
 
 # SELinux
 #include device/qcom/sepolicy-legacy-um/sepolicy.mk
@@ -204,6 +215,9 @@ endif
 
 # Telephony Jar
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+
+# Timeservice
+BOARD_USES_QC_TIME_SERVICES := true
 
 # Treble
 ENABLE_VENDOR_IMAGE := true
@@ -225,6 +239,9 @@ endif
 # Vendor init
 TARGET_INIT_VENDOR_LIB := libinit.tinno_8937
 TARGET_RECOVERY_DEVICE_MODULES := libinit.tinno_8937
+
+# Vendor Security Patch Level
+VENDOR_SECURITY_PATCH := 2021-01-01
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
