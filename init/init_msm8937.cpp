@@ -28,8 +28,6 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <cstdio>
-#include <string.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,6 +46,8 @@
 #include "vendor_init.h"
 #include "property_service.h"
 
+#define FP_DEV_FLE "/sys/devices/platform/fp_drv/fp_drv_info"
+
 using android::base::Trim;
 using android::base::ReadFileToString;
 
@@ -59,6 +59,37 @@ void property_override(char const prop[], char const value[], bool add = true)
          __system_property_update(pi, value, strlen(value));
     } else if (add) {
         __system_property_add(prop, strlen(prop), value, strlen(value));
+    }
+}
+
+void init_fingerprint_properties()
+{
+    std::string fp_dev;
+
+    if (ReadFileToString(FP_DEV_FLE, &fp_dev)) {
+        LOG(INFO) << "Loading Fingerprint HAL for sensor version " << fp_dev;
+        if (!strncmp(fp_dev.c_str(), "silead_fp", 9)) {
+            property_set("ro.hardware.fingerprint", "silead");
+            property_set("persist.sys.fp.goodix", "0");
+        } else if (!strncmp(fp_dev.c_str(), "goodix_fp", 9)) {
+            property_set("ro.hardware.fingerprint", "goodix");
+            property_set("persist.sys.fp.goodix", "1");
+        } else if (!strncmp(fp_dev.c_str(), "elan_fp", 7)) {
+            property_set("ro.hardware.fingerprint", "elan");
+            property_set("persist.sys.fp.goodix", "0");
+        } else if (!strncmp(fp_dev.c_str(), "chipone_fp", 10)) {
+            property_set("ro.hardware.fingerprint", "chipone");
+            property_set("persist.sys.fp.goodix", "0");
+        } else {
+            LOG(ERROR) << "Unsupported fingerprint sensor: " << fp_dev;
+            property_set("ro.hardware.fingerprint", "none");
+            property_set("persist.sys.fp.goodix", "0");
+        }
+    }
+    else {
+        LOG(ERROR) << "Failed to detect sensor version";
+        property_set("ro.hardware.fingerprint", "none");
+        property_set("persist.sys.fp.goodix", "0");
     }
 }
 
@@ -142,4 +173,5 @@ void vendor_load_properties()
 {
 	LOG(INFO) << "Loading vendor specific properties";
     init_alarm_boot_properties();
+    init_fingerprint_properties();
 }
