@@ -140,8 +140,13 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 
+TARGET_CONTINUOUS_SPLASH_ENABLED := true
+
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
+
+# DT2W
+TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/doubletap2wake"
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -200,9 +205,9 @@ TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 endif
 
 # RIL
-TARGET_RIL_VARIANT := caf
-TARGET_USES_OLD_MNC_FORMAT := true
-DISABLE_RILD_OEM_HOOK := true
+#TARGET_RIL_VARIANT := caf
+#TARGET_USES_OLD_MNC_FORMAT := true
+#DISABLE_RILD_OEM_HOOK := true
 
 # SELinux
 #include device/qcom/sepolicy-legacy-um/sepolicy.mk
@@ -217,7 +222,7 @@ endif
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # Timeservice
-BOARD_USES_QC_TIME_SERVICES := true
+#BOARD_USES_QC_TIME_SERVICES := true
 
 # Treble
 ENABLE_VENDOR_IMAGE := true
