@@ -106,7 +106,7 @@ vendor/lib/libmmcamera2_pproc_modules.so|0526a99e7b25eaf5cc8ac0b56352d6867944709
 vendor/lib/libmmcamera2_q3a_core.so|fc3177939e532abf9399f97ff8ff575371485b39
 vendor/lib/libmmcamera2_sensor_modules.so|76ee576f785e7b9f221ecdea13b84fee8fa3d9eb
 vendor/lib/libmmcamera2_stats_algorithm.so|206a04650e647b159cd7823d81f74bcb9a5a2271
-vendor/lib/libmmcamera2_stats_modules.so|3bf8e2214895ae7da07472472b30ccd76a6a918b
+vendor/lib/libmmcamera2_stats_modules.so|003cb9441dcd15bb42f3e2b987149b2c9caa873d
 vendor/lib/libmmcamera_cac3_lib.so|7d7343e540b1c08602e5c2fbe326645da10e0ff5
 vendor/lib/libmmcamera_chromaflash_lib.so|266522e4bd20299c67d56ab9c1912c57b1d3b6c1
 vendor/lib/libmmcamera_csidtg.so|97b5874650237ef7da039928b16a8ec7b113ffea
@@ -127,7 +127,7 @@ vendor/lib/libmmcamera_paaf_lib.so|90cd87d724d81579e5d50b5ec194c7947feec4fc
 vendor/lib/libmmcamera_pdaf.so|ee2f005356684965d4af91af207e0ae04a61c9bb
 vendor/lib/libmmcamera_pdafcamif.so|f4faf32ce232fef411b76cfe767274e21ac2c101
 vendor/lib/libmmcamera_ppbase_module.so|fbc2b0847969bf152a9d7320b4449dfaa967b830
-vendor/lib/libmmcamera_ppeiscore.so|f37d48ea5e454f03289e688f62012b43eac74e90
+vendor/lib/libmmcamera_ppeiscore.so|419a591031c22a6a7b48be5d79a44918498151f2
 vendor/lib/libmmcamera_quadracfa.so|87f1674020ea517d5f672c0527b4062074aecd6d
 vendor/lib/libmmcamera_stillmore_lib.so|0aec19b665aca7c9c9adaec1b6515fa07a3ebc82
 vendor/lib/libmmcamera_sw2d_lib.so|a90927b3135fe3480bb26af7a42d49b6ef51ecae
@@ -211,6 +211,9 @@ vendor/lib/libmmcamera_isp_sce40.so|323286c0b62069c2fe3b8bc39757ead5e2abffc7
 vendor/lib/libmmcamera_isp_sub_module.so|260cd45246f6e4fb6ed2e802b8546f58ac6da166
 vendor/lib/libmmcamera_isp_template.so|5a9db300ad135abe430aaa13beadeef2d4374ee4
 vendor/lib/libmmcamera_isp_wb40.so|3658818697ba0da0b9318553e92f081d98d26bde
+
+# Camera VNDK hack - from Lineage 18.1 RQ3A210605.005 (libgui.so)
+vendor/lib/libfui.so|2913bb2d43e1915dd3486fdc0a0eef46b430f34d
 
 # CNE - from T89626AA3-user 11 RKQ1.200928.002 00WW_3_140 release-keys
 system_ext/lib64/com.quicinc.cne.api@1.0.so|8e0491212ff86795958a17b82f4dcad76b16e954
