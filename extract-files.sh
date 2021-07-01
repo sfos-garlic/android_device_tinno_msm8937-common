@@ -64,6 +64,15 @@ function blob_fixup() {
     product/lib64/libdpmframework.so)
         "${PATCHELF}" --add-needed "libshim_dpmframework.so" "${2}"
         ;;
+    vendor/lib/libmmcamera_ppeiscore.so)
+        sed -i "s|libgui.so|libfui.so|g" "${2}"
+        ;;
+    vendor/lib/libmmcamera2_stats_modules.so)
+        sed -i "s|libgui.so|libfui.so|g" "${2}"
+        ;;
+    vendor/lib/libmmcamera2_stats_modules.so)
+        "${PATCHELF}" --remove-needed "libandroid.so" "${2}"
+        ;;
     esac
 }
 
