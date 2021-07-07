@@ -191,12 +191,6 @@ typedef int (*enumerate_2_0)(struct fingerprint_device *dev, fingerprint_finger_
 Return<RequestStatus> BiometricsFingerprint::enumerate()  {
     fingerprint_finger_id_t results[MAX_FINGERPRINTS];
     uint32_t n = MAX_FINGERPRINTS;
-
-    if (is_goodix) {
-        ALOGD("Skipping enumerate()");
-        return RequestStatus::SYS_EINVAL;
-    }
-
     enumerate_2_0 enumerate = (enumerate_2_0) mDevice->enumerate;
     int total_templates = enumerate(mDevice, results, &n);
 
@@ -215,15 +209,6 @@ Return<RequestStatus> BiometricsFingerprint::enumerate()  {
 
     return RequestStatus::SYS_OK;;
 }
-#else
-Return<RequestStatus> BiometricsFingerprint::enumerate()  {
-    if (is_goodix) {
-        ALOGD("Skipping enumerate()");
-        return RequestStatus::SYS_EINVAL;
-    }
-    return ErrorFilter(mDevice->enumerate(mDevice));
-}
-#endif
 
 Return<RequestStatus> BiometricsFingerprint::remove(uint32_t gid, uint32_t fid) {
     return ErrorFilter(mDevice->remove(mDevice, gid, fid));
