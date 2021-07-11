@@ -72,8 +72,8 @@ void init_fingerprint_properties()
             property_override("ro.hardware.fingerprint", "silead");
             property_override("persist.sys.fp.goodix", "0");
         } else if (!strncmp(fp_dev.c_str(), "goodix_fp", 9)) {
-            property_override("ro.hardware.fingerprint", "elan");
-            property_override("persist.sys.fp.goodix", "0");
+            property_override("ro.hardware.fingerprint", "goodix");
+            property_override("persist.sys.fp.goodix", "1");
         } else if (!strncmp(fp_dev.c_str(), "elan_fp", 7)) {
             property_override("ro.hardware.fingerprint", "elan");
             property_override("persist.sys.fp.goodix", "0");
