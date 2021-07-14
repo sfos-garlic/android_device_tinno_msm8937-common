@@ -1,0 +1,8 @@
+[
+  {
+    "remote"     : "github",
+    "repository" : "PixelExperience/hardware_qcom-caf_msm8996-r_display ",
+    "target_path": "hardware/qcom-caf/msm8996-r/display",
+    "revision"   : "eleven"
+  }
+]
