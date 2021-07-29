@@ -330,6 +330,8 @@ on post-fs-data
     # Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
     mkdir /data/vendor/tombstones/rfs 0771 system system
+    mkdir /mnt/vendor/persist/rfs 0770 vendor_rfs vendor_rfs
+    mkdir /mnt/vendor/persist/hlos_rfs 0770 vendor_rfs vendor_rfs
     chmod 0770 /mnt/vendor/persist/rfs/apq
     chmod 0770 /mnt/vendor/persist/rfs/apq/gnss
 
