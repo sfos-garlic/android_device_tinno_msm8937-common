@@ -39,3 +39,13 @@ cc_library_shared {
     compile_multilib: "32",
     vendor: true
 }
+
+// Goodix Fingerprint Daemon
+cc_library_shared {
+    name: "gxfp_shim",
+    srcs: ["gxfp_shim.cpp"],
+    shared_libs: [
+        "libutils"
+    ],
+    vendor: true,
+}

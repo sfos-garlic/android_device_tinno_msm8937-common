@@ -73,6 +73,11 @@ function blob_fixup() {
         "${PATCHELF}" --add-needed "libcamshim.so" "${2}"
         sed -i "s|libgui.so|libfui.so|g" "${2}"
         ;;
+    vendor/bin/gx_fpd)
+        "${PATCHELF}" --remove-needed "libbacktrace.so" "${2}"
+        "${PATCHELF}" --add-needed "liblog.so" "${2}"
+        sed -i "s|libbinder.so|gxfp_shim.so|g" "${2}"
+        ;;
     esac
 }
 

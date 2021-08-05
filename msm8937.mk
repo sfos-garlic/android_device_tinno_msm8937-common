@@ -197,7 +197,8 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.0-service-custom \
     android.hardware.biometrics.fingerprint@2.1.vendor \
     fingerprint.msm8937 \
-    libunwind
+    libunwind \
+    gxfp_shim
 
 # FM
 PRODUCT_PACKAGES += \
