@@ -1,0 +1,8 @@
+# AOSP clean_scratch_files tool executable
+/system/bin/clean_scratch_files                                                                   u:object_r:clean_scratch_files_exec:s0
+
+# Perfservice
+/system/bin/perfservice                                                                           u:object_r:vendor_perfservice_exec:s0
+
+# Goodix Fingerprint
+/vendor/bin/gx_fpd                                                                                u:object_r:vendor_gx_fpd_exec:s0

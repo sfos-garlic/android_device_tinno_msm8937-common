@@ -1,0 +1,29 @@
+##================Post Boot================
+# Access firmware and read Firmware version path="/firmware/verinfo/ver_info.txt" dev="mmcblk0p1
+allow qti_init_shell vfat:dir search;
+allow qti_init_shell vfat:file { getattr open read };
+
+# By vendor/bin/init.qcom.early_boot.sh
+allow qti_init_shell sysfs:file write;
+
+#LUN write /sys/class/android_usb/f_mass_storage/lun/nofua 1
+#init query property=sys.usb.rps_mask
+
+allow qti_init_shell debug_prop:property_service set;
+allow qti_init_shell system_prop:property_service set;
+
+#/system/bin/init query property=ro.gpu.available_frequencies
+allow qti_init_shell default_prop:property_service set;
+
+allow qti_init_shell exported3_default_prop:property_service set;
+
+#toolbox_exec /system/bin/toybox
+allow qti_init_shell toolbox_exec:file { execute execute_no_trans getattr open read };
+
+allow qti_init_shell vendor_radio_data_file:dir search;
+
+# init.qcom.post_boot.sh writes to read_ahead_kb
+# allow qti_init_shell sysfs_io_sched_tuneable:file write;
+
+# Don't audit dac_override
+dontaudit qti_init_shell self:capability dac_override;

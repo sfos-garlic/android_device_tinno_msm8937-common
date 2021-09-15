@@ -1,0 +1,3 @@
+# Ignore denials to /cache/recovery and /cache/backup.
+dontaudit mediaprovider cache_recovery_file:dir { open read };
+#allow mediaprovider unlabeled:dir getattr;

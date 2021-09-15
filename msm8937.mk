@@ -191,6 +191,11 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
 
+# Dumpstate
+PRODUCT_PACKAGES += \
+    android.hardware.dumpstate@1.1 \
+    android.hardware.dumpstate@1.0
+
 # For config.fs
 PRODUCT_PACKAGES += \
     fs_config_files

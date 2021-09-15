@@ -2,5 +2,13 @@
 #/dsp(/.*)?                                                                                       u:object_r:tmp_root_mount_file:s0
 /persist(/.*)?                                                                                    u:object_r:tmp_root_mount_file:s0
 
+/mnt/vendor/persist(/.*)?                                                                         u:object_r:mnt_vendor_file:s0
+
+# Hal
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock                 u:object_r:hal_power_stats_default_exec:s0
+
+# HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\-custom    u:object_r:hal_fingerprint_default_exec:s0
+
 # fpdrv_setprop
 /vendor/bin/init\.fpdrv_setprop\.sh                                                               u:object_r:init-fpdrv_setprop_exec:s0

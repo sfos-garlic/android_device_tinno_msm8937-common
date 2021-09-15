@@ -1,0 +1,13 @@
+allow hal_fingerprint_default tee_device:chr_file { read write open ioctl rw_file_perms };
+allow hal_fingerprint_default device:chr_file { read write ioctl open };
+allow hal_fingerprint_default self:binder call;
+allow hal_fingerprint_default self:netlink_kobject_uevent_socket { bind create setopt };
+allow hal_fingerprint_default vendor_file:file execute_no_trans;
+allow hal_fingerprint_default vndbinder_device:chr_file { read write ioctl open };
+allow hal_fingerprint_default vndservicemanager:binder { transfer call };
+allow hal_fingerprint_default vfat:file { read open getattr };
+allow hal_fingerprint_default vfat:dir search;
+allow hal_fingerprint_default fingerprintd_data_file:dir { open read write };
+
+# gx_fpd
+allow hal_fingerprint_default init:binder { call transfer };

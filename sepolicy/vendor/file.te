@@ -1,0 +1,2 @@
+type tmp_root_mount_file, file_type;
+#type sysfs_io_sched_tuneable, fs_type, sysfs_type;
