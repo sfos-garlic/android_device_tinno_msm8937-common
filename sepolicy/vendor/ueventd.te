@@ -1,0 +1,9 @@
+allow ueventd mnt_vendor_file:dir search;
+allow ueventd mnt_vendor_file:file { getattr open read };
+
+#Access Firmware to search and load /firmware/image/adsp.mdt
+allow ueventd vfat:dir search;
+allow ueventd vfat:file { getattr open read };
+
+#Access Persist partition
+allow ueventd tmp_root_mount_file:lnk_file read;

@@ -1,0 +1,2 @@
+# AOSP clean_scratch_files tool executable
+/system/bin/clean_scratch_files                                                                   u:object_r:clean_scratch_files_exec:s0

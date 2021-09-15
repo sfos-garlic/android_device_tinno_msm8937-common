@@ -1,0 +1,5 @@
+allow rild platform_app:binder call;
+allow rild self:socket ioctl;
+allow rild secure_element:binder call;
+allow rild socket_device:sock_file write;
+allow rild vendor_data_file:file { getattr lock open read };
