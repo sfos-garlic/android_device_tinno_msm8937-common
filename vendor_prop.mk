@@ -229,9 +229,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 wifi.interface=wlan0
 
 # Wi-Fi Display
-PRODUCT_PROPERTY_OVERRIDES += \
-persist.debug.wfd.enable=1 \
+#PRODUCT_PROPERTY_OVERRIDES += \
+#persist.debug.wfd.enable=1 \
 ##property to enable HWC for VDS
-persist.hwc.enable_vds=1 \
+#persist.hwc.enable_vds=1 \
 ##property to choose between virtual/external wfd display
-persist.sys.wfd.virtual=0
+#persist.sys.wfd.virtual=0
