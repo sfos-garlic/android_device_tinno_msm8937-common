@@ -1,0 +1,48 @@
+allow init device:chr_file { ioctl open read write };
+allow init hwservicemanager:binder { call transfer };
+
+allow init hal_camera_default:fd use;
+allow init hal_fingerprint_hwservice:hwservice_manager { add find };
+allow init hal_power_stats_hwservice:hwservice_manager { add find };
+allow init hidl_base_hwservice:hwservice_manager add;
+
+allow init ion_device:chr_file { ioctl open read };
+allow init netutils_wrapper_exec:file { execute execute_no_trans getattr open read };
+
+allow init proc:file setattr;
+
+allow init platform_app:binder transfer;
+
+allow init self:binder call;
+allow init self:capability2 block_suspend;
+allow init self:netlink_kobject_uevent_socket read;
+allow init self:netlink_route_socket { bind create getattr nlmsg_read nlmsg_write read setopt write };
+allow init self:netlink_socket { bind create read write };
+allow init self:rawip_socket { create getopt setopt };
+allow init self:socket { create ioctl read write };
+allow init self:udp_socket ioctl;
+
+allow init servicemanager:binder { call transfer };
+
+allow init sysfs:file { open read write setattr };
+allow init sysfs:dir create;
+allow init sysfs_devices_system_cpu:file write;
+allow init sysfs_wake_lock:file { open write };
+
+allow init system_file:file execute_no_trans;
+allow init system_net_netd_hwservice:hwservice_manager find;
+allow init system_server:binder { call transfer };
+
+allow init vendor_data_file:file { ioctl lock };
+allow init vendor_file:file { execute execute_no_trans };
+#allow init vendor_perf_service:service_manager { add find };
+
+#path="/dev/qseecom" dev="tmpfs"
+allow init tee_device:chr_file { ioctl open read write };
+
+# Read Firmware /firmware/image/elanfp.mdt dev="mmcblk0p1"
+allow init vfat:dir search;
+allow init vfat:file { getattr open read };
+
+allow init tmp_root_mount_file:dir mounton;
+allow init tmp_root_mount_file:lnk_file read;

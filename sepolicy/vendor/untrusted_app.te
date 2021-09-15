@@ -1,0 +1,7 @@
+allow untrusted_app mnt_sdcard_file:lnk_file read;
+allow untrusted_app virtual_ab_prop:file { getattr open };
+
+# For Cpu monitoring and Hardware Properties/Stats Query Apps
+allow untrusted_app proc_stat:file open;
+allow untrusted_app sysfs_devfreq:dir search;
+allow untrusted_app sysfs_graphics:file { getattr open read };

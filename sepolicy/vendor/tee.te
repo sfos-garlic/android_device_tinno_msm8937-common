@@ -1,0 +1,7 @@
+#Access fpdata
+allow tee fingerprintd_data_file:dir { create read open write search add_name remove_name };
+allow tee fingerprintd_data_file:file { create read open write unlink };
+
+#qsee access to /data/misc/qsee and persist
+allow tee system_data_file:dir { open read };
+allow tee tmp_root_mount_file:lnk_file read;
