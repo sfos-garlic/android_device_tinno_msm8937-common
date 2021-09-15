@@ -1,0 +1,2 @@
+#Requested by pm-service
+allow vendor_per_mgr self:capability net_raw;
