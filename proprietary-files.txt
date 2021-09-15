@@ -372,7 +372,7 @@ vendor/lib64/libwvhidl.so|68d257f6c4b409f71f80c231789d9951f71308a8
 
 # DSP service - from T89571AA3-user-11-RKQ1.200928.002-00WW_3_150-release-keys
 vendor/bin/dspservice|c7809e32581d5c6efac65a3a7689f43526c17bb8
-vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|fbf2bb38ca6bdddf98c7123da9e1f263a4eec55f
+vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|4a010b7c7ecb1134c14792237ed90f03f126275c
 vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy|f060101b26d3674bb173e5fc95e118f56a8ac15d
 vendor/lib/vendor.qti.hardware.dsp@1.0.so|41bdb4d9eda88cebfbc3bc6db64ff875416dbf5a
 vendor/lib64/vendor.qti.hardware.dsp@1.0.so|5f30d9c5fff738e6194a36a5b93372fa32ec0471
