@@ -571,8 +571,8 @@ service vendor.dataqti /vendor/bin/qti
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
-    user root
-    group root
+    user system
+    group system
     writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false

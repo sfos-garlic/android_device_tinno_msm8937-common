@@ -1,0 +1,3 @@
+# For Cpu monitoring and Hardware Properties/Stats Query Apps
+allow untrusted_app_25 sysfs_kgsl:file { open read getattr };
+allow untrusted_app_25 vendor_sysfs_kgsl_gpuclk:file { open read getattr };
