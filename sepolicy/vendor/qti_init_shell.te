@@ -22,5 +22,8 @@ allow qti_init_shell toolbox_exec:file { execute execute_no_trans getattr open r
 
 allow qti_init_shell vendor_radio_data_file:dir search;
 
+# init.qcom.post_boot.sh writes to read_ahead_kb
+# allow qti_init_shell sysfs_io_sched_tuneable:file write;
+
 # Don't audit dac_override
 dontaudit qti_init_shell self:capability dac_override;

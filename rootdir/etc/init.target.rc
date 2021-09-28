@@ -34,19 +34,6 @@ on fs
 
     mount_all /vendor/etc/fstab.qcom
 
-    # Set permissions for persist partition
-    chown root system /mnt/vendor/persist
-    chmod 0771 /mnt/vendor/persist
-    mkdir /mnt/vendor/persist/alarm 0770 system system
-    mkdir /mnt/vendor/persist/bluetooth 0770 bluetooth bluetooth
-    mkdir /mnt/vendor/persist/data 0700 system system
-    mkdir /mnt/vendor/persist/display 0770 system graphics
-    mkdir /mnt/vendor/persist/time 0770 system system
-    mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
-    mkdir /mnt/vendor/persist/secnvm 0770 system system
-    mkdir /mnt/vendor/persist/vpp 0770 media media
-    restorecon_recursive /mnt/vendor/persist
-
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -67,6 +54,16 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
+
+# Notification LED
+on early-init && property:ro.boot.mode=charger
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
+    write /sys/class/leds/red/brightness 255
 
 on init
    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
@@ -93,11 +90,6 @@ service thermal-engine /vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/ven
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service vendor.power_off_alarm /vendor/bin/power_off_alarm
-    class core
-    group system
-    disabled
-    oneshot
 
 on boot
     start rmt_storage
@@ -158,8 +150,13 @@ on property:init.svc.surfaceflinger=restarting
     start hwcomposer-2-1
 
 on charger
+    wait /dev/block/bootdevice/by-name/system
+    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
     setprop sys.usb.configfs 0
+    start qcom-post-boot
+    setprop persist.sys.usb.config mass_storage
     start vendor.hvdcp_opti
+    start vendor.vm_bms
     start vendor.power_off_alarm
 
 service adsprpcd /vendor/bin/adsprpcd

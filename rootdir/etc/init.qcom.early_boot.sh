@@ -1,5 +1,5 @@
 #!/vendor/bin/sh
-# Copyright (c) 2012-2013,2016 The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2013,2016,2018-2020 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,7 +26,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-export PATH=/system/bin
+export PATH=/vendor/bin
 
 # Set platform variables
 if [ -f /sys/devices/soc0/hw_platform ]; then
@@ -51,22 +51,28 @@ log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC 
 target=`getprop ro.board.platform`
 case "$target" in
     "msm8937" | "msm8940")
-        # Set ro.opengles.version based on chip id.
+        # Set vendor.opengles.version based on chip id.
         # MSM8937 and MSM8940  variants supports OpenGLES 3.1
         # 196608 is decimal for 0x30000 to report version 3.0
         # 196609 is decimal for 0x30001 to report version 3.1
         # 196610 is decimal for 0x30002 to report version 3.2
         case "$soc_hwid" in
-            294|295|296|297|298|313)
-                setprop ro.opengles.version 196610
+            294|295|296|297|298|313|353|354|363|364)
+                setprop vendor.opengles.version 196610
+                if [ $soc_hwid = 354 ]
+                then
+                    setprop vendor.media.target.version 1
+                    log -t BOOT -p i "SDM429 early_boot prop set for: HwID '$soc_hwid'"
+                fi
                 ;;
-            303|307|308|309|320)
-                # Vulkan is not supported for 8917 & 8920 variants
-                setprop ro.opengles.version 196608
+            303|307|308|309|320|386|436)
+                # Vulkan is not supported for 8917 variants
+                setprop vendor.opengles.version 196608
                 setprop persist.graphics.vulkan.disable true
+                setprop vendor.gralloc.disable_ahardware_buffer 1
                 ;;
             *)
-                setprop ro.opengles.version 196608
+                setprop vendor.opengles.version 196608
                 ;;
         esac
         ;;
@@ -83,18 +89,25 @@ function set_perms() {
     chmod $3 $1
 }
 
-# check for mdp caps
-setprop debug.gralloc.gfx_ubwc_disable 1
-file=/sys/class/graphics/fb0/mdp/caps
-if [ -f "$file" ]
+# check for the type of driver FB or DRM
+fb_driver=/sys/class/graphics/fb0
+if [ -e "$fb_driver" ]
 then
-    cat $file | while read line; do
-      case "$line" in
-                *"ubwc"*)
-                setprop debug.gralloc.enable_fb_ubwc 1
-                setprop debug.gralloc.gfx_ubwc_disable 0
-            esac
-    done
+    # check for mdp caps
+    file=/sys/class/graphics/fb0/mdp/caps
+    if [ -f "$file" ]
+    then
+        setprop vendor.gralloc.disable_ubwc 1
+        cat $file | while read line; do
+          case "$line" in
+                    *"ubwc"*)
+                    setprop vendor.gralloc.enable_fb_ubwc 1
+                    setprop vendor.gralloc.disable_ubwc 0
+                esac
+        done
+    fi
+else
+    set_perms /sys/devices/virtual/hdcp/msm_hdcp/min_level_change system.graphics 0660
 fi
 
 boot_reason=`cat /proc/sys/kernel/boot_reason`
@@ -105,8 +118,8 @@ else
     setprop ro.vendor.alarm_boot false
 fi
 
-# copy GPU frequencies to system property
+# copy GPU frequencies to vendor property
 if [ -f /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies ]; then
     gpu_freq=`cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies` 2> /dev/null
-    setprop ro.gpu.available_frequencies "$gpu_freq"
+    setprop vendor.gpu.available_frequencies "$gpu_freq"
 fi
