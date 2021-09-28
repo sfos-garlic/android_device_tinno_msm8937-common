@@ -1,2 +1,5 @@
 allow zygote exported_camera_prop:file { getattr open read };
 allow zygote vendor_file:file { execute getattr open read };
+
+# Set Background tasks TODO: Remove
+allow zygote device:file { open read write };
