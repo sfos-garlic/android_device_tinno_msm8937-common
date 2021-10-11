@@ -106,6 +106,9 @@ persist.vendor.dpm.loglevel=0
 # DRM
 drm.service.enabled=true
 
+# Enable support of one-handed mode
+ro.support_one_handed_mode=true
+
 # FM radio
 ro.fm.transmitter=false
 
