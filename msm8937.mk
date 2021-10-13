@@ -277,8 +277,8 @@ PRODUCT_PACKAGES += \
     lights.msm8937
 
 # LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -405,7 +405,7 @@ PRODUCT_PACKAGES += \
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext \
-    ims-ext-common_system \
+    ims-ext-common \
     ims_ext_common.xml \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
@@ -413,17 +413,17 @@ PRODUCT_PACKAGES += \
     qti_telephony_utils.xml
 
 
-PRODUCT_BOOT_JARS += \
-    ims-ext-common_system \
-    telephony-ext
+#PRODUCT_BOOT_JARS += \
+#    ims-ext-common_system \
+#    telephony-ext
 
 # TextClassifier
 PRODUCT_PACKAGES += \
     textclassifier.smartselection.bundle1
 
 # Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.trust@1.0-service
 
 # VNDK
 PRODUCT_PACKAGES += \
