@@ -249,7 +249,8 @@ PRODUCT_PACKAGES += \
     init.msm.usb.configfs.rc \
     init.qcom.usb.sh \
     ueventd.qcom.rc \
-    fstab.qcom
+    fstab.qcom \
+    init.logcat.rc
 
  # RCS
 PRODUCT_PACKAGES += \
