@@ -130,6 +130,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0 \
+    android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth.audio@2.0-impl \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor
 
@@ -173,6 +174,7 @@ PRODUCT_COPY_FILES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.0-service-custom \
+    android.hardware.biometrics.fingerprint@2.2.vendor \
     fingerprint.msm8937 \
     libunwind
 
@@ -205,10 +207,13 @@ PRODUCT_PACKAGES += \
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service
+    android.hardware.gatekeeper@1.0-service \
+    android.hardware.gatekeeper@1.0.vendor
 
 # GPS
 PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.1.vendor \
+    android.hardware.gnss@2.1.vendor \
     libwifi-hal-ctrl
 
 PRODUCT_COPY_FILES += \
@@ -299,6 +304,7 @@ PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
+    android.system.net.netd@1.1.vendor \
     libandroid_net \
     netutils-wrapper-1.0
 
@@ -333,6 +339,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
     android.hardware.power.stats@1.0-service.mock \
+    android.hardware.power@1.2.vendor \
+    android.hardware.power@1.3.vendor \
     vendor.qti.hardware.perf@2.0.vendor
 
 PRODUCT_COPY_FILES += \
@@ -379,10 +387,12 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.1.vendor \
     android.hardware.radio@1.2 \
     android.hardware.radio@1.3 \
     android.hardware.radio@1.4 \
     android.hardware.radio.config@1.0 \
+    android.hardware.radio.config@1.0.vendor \
     android.hardware.radio.config@1.1 \
     android.hardware.radio.config@1.2 \
     android.hardware.secure_element@1.0 \
