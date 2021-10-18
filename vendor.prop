@@ -224,3 +224,6 @@ wifi.interface=wlan0
 #persist.hwc.enable_vds=1
 ##property to choose between virtual/external wfd display
 #persist.sys.wfd.virtual=0
+
+# Don't write binary XML files
+persist.sys.binary_xml=false
