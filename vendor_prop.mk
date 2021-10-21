@@ -91,7 +91,8 @@ vendor.display.enable_default_color_mode=1 \
 vendor.gralloc.enable_fb_ubwc=1 \
 vendor.display.disable_skip_validate=1 \
 ro.opengles.version=196610 \
-ro.qualcomm.cabl=0 \
+#error: found duplicate sysprop assignments:
+ro.qualcomm.cabl=2 \
 ro.vendor.display.cabl=2 \
 ro.sf.lcd_density=441
 
@@ -172,8 +173,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ro.emmc_size=16GB
 
 # Qualcomm
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.qualcomm.cabl=2
+#PRODUCT_PROPERTY_OVERRIDES += \
+#ro.qualcomm.cabl=2
 
 # Recovery
 PRODUCT_PROPERTY_OVERRIDES += \
