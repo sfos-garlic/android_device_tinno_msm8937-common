@@ -42,7 +42,8 @@ LOCAL_CFLAGS += -D_ANDROID_ -DQCAMERA_REDEFINE_LOG
 LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/inc \
     $(LOCAL_PATH)/../common \
-    hardware/qcom/media/media/mm-core/inc \
+    $(LOCAL_PATH)/../../../../../../../hardware/qcom-caf/msm8996/media/mm-core/inc/OMX_QCOMExtns.h \
+    hardware/qcom-caf/msm8996/media/mm-core/inc \
     system/media/camera/include \
 
 LOCAL_CFLAGS += -DCAMERA_ION_HEAP_ID=ION_IOMMU_HEAP_ID
