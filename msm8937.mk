@@ -348,9 +348,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_ODM_PROPERTIES += \
     ro.vendor.qti.va_odm.support=1
 
-# Properties
--include $(LOCAL_PATH)/vendor_prop.mk
-
 # privapp
 PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log
 
