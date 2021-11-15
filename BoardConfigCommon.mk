@@ -272,11 +272,11 @@ BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 TARGET_DISABLE_WCNSS_CONFIG_COPY := true
-TARGET_HAS_BROKEN_WLAN_SET_INTERFACE := true
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 #WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true #(deprecated in android-11)
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
 # Inherit from the proprietary version
 -include vendor/tinno/msm8937-common/BoardConfigVendor.mk
