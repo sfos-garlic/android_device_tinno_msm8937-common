@@ -383,12 +383,6 @@ vendor/lib/vendor.qti.hardware.fm@1.0.so|7288b0ee5759bf2bbebba9b76b274aa4faa9c4d
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|2bf5898dd78591104f7e9b154a21f19568f2d76e
 vendor/lib64/vendor.qti.hardware.fm@1.0.so|17e86e9a2054db733d955fcf1066f6e06a44fb21
 
-# Gatekeeper - from T89626AA3-user 11 RKQ1.200928.002 00WW_3_140 release-keys
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|de1e8d026b16255040dbe6eb67faa73c9b656553
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|74ff564ec413866644361401ef5cf8d55846ead5
-vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so|f835499cca15129395d0aeb964cb18504512e0c4
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so|881ee60c801961f2fb9dd766e0840370add4f506
-
 # Gatekeeper - from daisy-user 10 QKQ1.191002.002 V11.0.18.0.QDLMIXM
 vendor/lib64/hw/gatekeeper.msm8953.so:vendor/lib64/hw/gatekeeper.msm8937.so|1086e5dcda7aa2bed7ac015f7850095f6199a1c2
 vendor/lib64/hw/gatekeeper.msm8937.so|1086e5dcda7aa2bed7ac015f7850095f6199a1c2
