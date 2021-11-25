@@ -257,6 +257,8 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 #PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE:= true
 BOARD_VNDK_VERSION := current
 #BOARD_VNDK_RUNTIME_DISABLE := true
+# PRODUCT_SHIPPING_API_LEVEL indicates the first api level, device has been commercially launched on.
+PRODUCT_SHIPPING_API_LEVEL := 27 # Set this to Oreo MR1 as we use treble partition scheme and 3.18 kernel.
 else
 TARGET_COPY_OUT_VENDOR := system/vendor
 endif
