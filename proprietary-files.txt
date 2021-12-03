@@ -509,6 +509,10 @@ vendor/lib64/librs_adreno_sha1.so|f9d28682f9c219dfe086da9f3a15aaddbcd38a05
 vendor/lib/libhdr_tm.so|4c371d0931245a65d0b4df768de8837bbdf4832e
 vendor/lib64/libhdr_tm.so|c388a9b14966583cde2c682c129fcf5cfa298239
 
+# Graphics (HWC) - from T89571AA3-user-11-RKQ1.200928.002-00WW_3_150-release-keys
+vendor/lib/libdisplayconfig.qti.so|b0e1544fa65d47ffb64fbe16e2d4f0c06264f0a9
+vendor/lib64/libdisplayconfig.qti.so|e2a3971b331620828a6a7163b15170aad9935754
+
 # Graphics (SDM) - from daisy-user 10 QKQ1.191002.002 V11.0.18.0.QDLMIXM
 -vendor/lib/libsdm-disp-vndapis.so|9bd99e0024f5abcc285f64aadea8725556f16789
 -vendor/lib64/libsdm-disp-vndapis.so|b1dede9efa81e8d0374343612ad7ad0d967e8e29
