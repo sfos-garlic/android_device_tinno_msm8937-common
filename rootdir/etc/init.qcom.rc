@@ -205,6 +205,12 @@ on boot
     mkdir /mnt/vendor/persist/vpp 0770 media media
     restorecon_recursive /mnt/vendor/persist
 
+    # Enable qcrild and data services
+    enable vendor.qcrild
+    enable vendor.qcrild2
+    enable vendor.dataqti
+    enable vendor.dataadpl
+
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
