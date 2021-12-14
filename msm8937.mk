@@ -316,6 +316,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank.sw-audio=1
 PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
 
+# Memtrack HAL
+PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service
+
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
