@@ -166,6 +166,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.mapper@2.0.vendor \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     copybit.msm8937 \
@@ -187,7 +188,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.frameworks.stats@1.0.vendor \
     android.hardware.biometrics.fingerprint@2.0-service-custom \
-    android.hardware.biometrics.fingerprint@2.2.vendor \
+    android.hardware.biometrics.fingerprint@2.1.vendor \
     fingerprint.msm8937 \
     libunwind
 
@@ -249,6 +250,7 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
+    android.hidl.base@1.0.vendor \
     android.hidl.manager@1.0
 
 # HW crypto
@@ -287,8 +289,8 @@ PRODUCT_PACKAGES += \
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
-
+    android.hardware.keymaster@3.0-service \
+    android.hardware.keymaster@3.0.vendor
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
@@ -400,15 +402,24 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.1 \
     android.hardware.radio@1.1.vendor \
     android.hardware.radio@1.2 \
+    android.hardware.radio@1.2.vendor \
     android.hardware.radio@1.3 \
+    android.hardware.radio@1.3.vendor \
     android.hardware.radio@1.4 \
+    android.hardware.radio@1.4.vendor \
     android.hardware.radio.config@1.0 \
     android.hardware.radio.config@1.0.vendor \
     android.hardware.radio.config@1.1 \
+    android.hardware.radio.config@1.1.vendor \
     android.hardware.radio.config@1.2 \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0 \
+    android.hardware.radio.deprecated@1.0.vendor \
     android.hardware.secure_element@1.0 \
+    android.hardware.secure_element@1.0.vendor \
     libcnefeatureconfig \
     librmnetctl \
     libxml2
