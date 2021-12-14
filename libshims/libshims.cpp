@@ -20,4 +20,8 @@ namespace android {
     extern "C" void ASensorManager_getInstanceForPackage() {}
     // libandroid_runtime.so
     extern "C" void _ZNK7android6Sensor11getMaxValueEv() {}
+    // libfui.so (libgui.so VNDKv30)
+    extern "C" void a_ZN7android15HdrCapabilitiesD1Ev() {}
+    extern "C" void _ZN7android15HdrCapabilitiesD1Ev() {}
+    extern "C" void _Z9to_stringRKN7android4RectE() {}
 }
