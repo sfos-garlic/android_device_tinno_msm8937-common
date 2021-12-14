@@ -147,6 +147,7 @@ PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     camera.msm8937 \
     libcamshim \
+    libui_shim \
     Snap
 
 # Cgroup and task_profiles
