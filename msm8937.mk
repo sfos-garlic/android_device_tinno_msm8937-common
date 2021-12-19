@@ -279,6 +279,7 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.msm.usb.configfs.rc \
     init.qcom.usb.sh \
+    init.insmod.sh \
     ueventd.qcom.rc \
     fstab.qcom
 
@@ -428,8 +429,8 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0 \
     android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.secure_element@1.0 \
-    android.hardware.secure_element@1.0.vendor \
+    android.hardware.secure_element@1.2 \
+    android.hardware.secure_element@1.2.vendor \
     libcnefeatureconfig \
     librmnetctl \
     libxml2
