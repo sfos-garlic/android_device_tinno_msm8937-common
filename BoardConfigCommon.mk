@@ -228,7 +228,7 @@ endif
 #DISABLE_RILD_OEM_HOOK := true
 
 # SELinux
-#include device/qcom/sepolicy-legacy-um/SEPolicy.mk
+include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 TARGET_SEPOLICY_DIR := msm8937
