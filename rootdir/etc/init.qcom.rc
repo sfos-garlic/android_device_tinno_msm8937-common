@@ -506,7 +506,7 @@ service cnd /vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 service dpmQmiMgr /vendor/bin/dpmQmiMgr
     class main
@@ -523,12 +523,12 @@ service vendor.rmt_storage /vendor/bin/rmt_storage
     user root
     shutdown critical
     ioprio rt 0
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.tftp_server /vendor/bin/tftp_server
    class core
    user root
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 on property:vendor.wc_transport.start_hci=true
     start vendor.start_hci_filter
@@ -571,7 +571,7 @@ on property:vendor.hw.fm.init=1
 
 service vendor.netmgrd /vendor/bin/netmgrd
     class main
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 #start dataqti service
 service vendor.dataqti /vendor/bin/qti
@@ -579,13 +579,13 @@ service vendor.dataqti /vendor/bin/qti
     user radio
     socket qti_dpm_uds_file dgram 660 radio radio
     group radio oem_2901 diag usb inet
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
     user system
     group system
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -612,7 +612,7 @@ service loc_launcher /vendor/bin/loc_launcher
     class late_start
     user gps
     group gps
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
@@ -639,7 +639,7 @@ service atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 service ims_regmanager /vendor/bin/exe-ims-regmanagerprocessnative
     class late_start
@@ -665,7 +665,7 @@ service charger /system/bin/charger
     class charger
     group system graphics
     seclabel u:r:charger:s0
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 service ssr_diag /vendor/bin/ssr_diag
     class late_start
@@ -686,7 +686,7 @@ service msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.
     class core
     user root
     group root
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
     disabled
 
 on charger
@@ -728,5 +728,5 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 wakelock context_hub
     capabilities BLOCK_SUSPEND
     ioprio rt 4
-    task_profiles ProcessCapacityHigh HighPerformance
+    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     onrestart restart audioserver
