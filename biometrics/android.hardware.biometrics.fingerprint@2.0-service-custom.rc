@@ -5,13 +5,13 @@ service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.
     class late_start
     user system
     group system input uhid
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.gx_fpd /vendor/bin/gx_fpd
     class late_start
     user system
     group system
-    task_profiles ServiceCapacityLow
+    writepid /dev/cpuset/system-background/tasks
     oneshot
 
 on post-fs-data
