@@ -225,8 +225,9 @@ TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 endif
 
 # RIL
-TARGET_USES_OLD_MNC_FORMAT := true
-ENABLE_VENDOR_RIL_SERVICE := true
+#TARGET_RIL_VARIANT := caf
+#TARGET_USES_OLD_MNC_FORMAT := true
+#DISABLE_RILD_OEM_HOOK := true
 
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
