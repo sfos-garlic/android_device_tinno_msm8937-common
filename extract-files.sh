@@ -78,6 +78,9 @@ function blob_fixup() {
         "${PATCHELF}" --add-needed "liblog.so" "${2}"
         sed -i "s|libbinder.so|gxfp_shim.so|g" "${2}"
         ;;
+    vendor/lib64/fingerprint.goodix.default.so)
+        "${PATCHELF}" --remove-needed "libandroid_runtime.so" "${2}"
+        ;;
     esac
 }
 
