@@ -75,10 +75,9 @@ function blob_fixup() {
         ;;
     vendor/bin/gx_fpd)
         "${PATCHELF}" --remove-needed "libbacktrace.so" "${2}"
-        "${PATCHELF}" --add-needed "liblog.so" "${2}"
         sed -i "s|libbinder.so|gxfp_shim.so|g" "${2}"
         ;;
-    vendor/lib64/fingerprint.goodix.default.so)
+    vendor/lib64/hw/fingerprint.goodix.default.so)
         "${PATCHELF}" --remove-needed "libandroid_runtime.so" "${2}"
         ;;
     esac
