@@ -48,4 +48,3 @@ on boot
 
 on property:persist.sys.fp.goodix=0
     stop vendor.gx_fpd
-
