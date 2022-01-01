@@ -2,6 +2,7 @@ allow init device:chr_file { ioctl open read write };
 allow init hwservicemanager:binder { call transfer };
 
 allow init hal_camera_default:fd use;
+allow init hal_fingerprint_default:binder { call transfer };
 allow init hal_fingerprint_hwservice:hwservice_manager { add find };
 allow init hal_power_stats_hwservice:hwservice_manager { add find };
 allow init hidl_base_hwservice:hwservice_manager add;
@@ -43,6 +44,10 @@ allow init tee_device:chr_file { ioctl open read write };
 # Read Firmware /firmware/image/elanfp.mdt dev="mmcblk0p1"
 allow init vfat:dir search;
 allow init vfat:file { getattr open read };
+
+# gx_fpd
+allow init vndbinder_device:chr_file { ioctl open read write };
+allow init vndservicemanager:binder { call transfer };
 
 allow init tmp_root_mount_file:dir mounton;
 allow init tmp_root_mount_file:lnk_file read;
