@@ -39,6 +39,7 @@ vendor/lib/libaudioalsa.so|58feb2c5cbc4ac6e23ef4896c87785bed8db3c80
 vendor/lib/libaudioconfigstore.so|3193c47f02c6cd95a7de7f90e43cf58cf354048e
 vendor/lib/libaudioparsers.so|a39f1f6e789547f63b7e2369d73b29876763d68d
 vendor/lib/libdrc.so|303d67b5bfea162ae994d3817de317258035c42a
+vendor/lib/libhwdaphal.so|4f703114fdc6a8ed9b6942893a9a1f21456fb1eb
 vendor/lib/libqtigef.so|fbb307c0da385bf09cbdef714e8fc1ecfc7ba6fd
 vendor/lib/libsurround_3mic_proc.so|84a4d84fcf567554fb5174fc6d41310d864e5f8e
 vendor/lib64/soundfx/libaudiopreprocessing.so|63a98e98764eae355edbdd075d4a9001584731b5
@@ -52,6 +53,7 @@ vendor/lib64/libaudcal.so|4f7d53d3b4d6a91b9ebf9c0cb5f90a27a837c2b5
 vendor/lib64/libaudioalsa.so|534d4dc07fecea0611273c745721b1ed2015a3a3
 vendor/lib64/libaudioconfigstore.so|5c044fc8ea1fb3c08e1c08a17f0512f5104e3c11
 vendor/lib64/libaudioparsers.so|1463c5ee0f2f040835386d9ccb4a4b010c5bdf58
+vendor/lib64/libhwdaphal.so|9fe02ad0bbbdfa0c38a7a72e20dc246cfdfc5cb8
 vendor/lib64/libqtigef.so|b3f1cb946809bfe20a4afced73b4fd24c5591421
 vendor/lib64/libtinycompress.so|1d81c62dd13387d13605568d27fc13cb1693f875
 
@@ -162,6 +164,9 @@ vendor/lib/libremosaic_daemon.so|768839ecf4ff09ec6f36d5b6bf75c3d3f7a4f7be
 vendor/lib/libseemore.so|8fc2ae17c7364f789bda71b20a2fba006f9568c8
 vendor/lib/libtrueportrait.so|b8e11c098bd859aae6c535cdb87e3e36f6b1c6ef
 vendor/lib/libubifocus.so|833a305c780b2e7e338323c5ba27cb042f5cc3ed
+
+# Camera - from Xiaomi/hydrogen/hydrogen:7.0/NRD90M/V10.3.2.0.NBCCNXM:user/release-keys
+vendor/lib/libmmcamera_sw_tnr.so|59b0f350eb0cfa85399c296af14ac680ca99705e
 
 # Camera firmware - from U-FEEL-PRIME-V01.31.OPE.20-[Nougat-7.1]-P7201AN
 vendor/firmware/cpp_firmware_v1_10_0.fw|cf9458601aa4bbe9c57acfc1c7d0f158386ace9f
@@ -460,6 +465,7 @@ vendor/lib/libadreno_utils.so|3a09e6720121f5b459a1fc7f9639b632da5832ec
 vendor/lib/libbccQTI.so|124156259b7900ac44c48dd9cf83b210d02d8c9d
 vendor/lib/libc2d30_bltlib.so|4a486823ef2a9ea14f4f02c9eb9053ac5fb028af
 vendor/lib/libgsl.so|2ddafd66848dfd146bbaf184b69f92df9f79c99f
+vendor/lib/libllvd_smore.so|d08432b63c6c2863e7a197b52475df64b10b5e13
 vendor/lib/libllvm-glnext.so|a28adae3ae758cdffc889d681b3cdefe24351c32
 vendor/lib/libllvm-qcom.so|3079ae9049c8758664e6ade78837e0fc6c2272d5
 vendor/lib/libmm-hdcpmgr.so|ea47b3c85cfd894945cd7a4412cdc3972ea67c78
