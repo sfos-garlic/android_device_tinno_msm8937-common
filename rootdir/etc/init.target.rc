@@ -193,11 +193,6 @@ service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     user root
     group system wakelock
 
-service mdtpd /vendor/bin/mdtpd
-    class late_start
-    user root
-    group system radio drmrpc
-
 # FM enable/disable triggers
 on property:hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
