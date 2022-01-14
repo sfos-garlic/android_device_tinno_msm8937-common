@@ -205,7 +205,7 @@ Return<RequestStatus> BiometricsFingerprint::enumerate()  {
     for (uint32_t i = 0; i < n; i++) {
         const uint64_t devId = reinterpret_cast<uint64_t>(mDevice);
         const auto& fp = results[i];
-        ALOGD("onEnumerate(fid=%d, gid=%d, rem=%d)", fp.fid, fp.gid, n -  i - 1);
+        ALOGD("onEnumerate(fid=%d, gid=%d)", fp.fid, fp.gid);
         if (!mClientCallback->onEnumerate(devId, fp.fid, fp.gid, n - i - 1).isOk()) {
             ALOGE("failed to invoke fingerprint onEnumerate callback");
         }
