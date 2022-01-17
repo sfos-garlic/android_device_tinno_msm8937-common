@@ -1,0 +1,14 @@
+type init-fpdrv_setprop, domain;
+type init-fpdrv_setprop_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(init-fpdrv_setprop)
+
+allow init-fpdrv_setprop vendor_shell_exec:file rx_file_perms;
+allow init-fpdrv_setprop vendor_toolbox_exec:file rx_file_perms;
+
+set_prop(init-fpdrv_setprop, vendor_fpdrv_setprop_prop)
+set_prop(init-fpdrv_setprop, ctl_start_prop)
+
+allow init-fpdrv_setprop exported_default_prop:property_service set;
+allow init-fpdrv_setprop sysfs:file { getattr open read };
+

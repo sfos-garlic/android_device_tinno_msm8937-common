@@ -9,3 +9,6 @@
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\-custom    u:object_r:hal_fingerprint_default_exec:s0
+
+# fpdrv_setprop
+/vendor/bin/init\.fpdrv_setprop\.sh                                                               u:object_r:init-fpdrv_setprop_exec:s0
