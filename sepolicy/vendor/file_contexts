@@ -1,0 +1,6 @@
+/firmware(/.*)?                                                                                   u:object_r:tmp_root_mount_file:s0
+#/dsp(/.*)?                                                                                       u:object_r:tmp_root_mount_file:s0
+/persist(/.*)?                                                                                    u:object_r:tmp_root_mount_file:s0
+
+# fpdrv_setprop
+/vendor/bin/init\.fpdrv_setprop\.sh                                                               u:object_r:init-fpdrv_setprop_exec:s0

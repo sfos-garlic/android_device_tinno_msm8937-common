@@ -221,6 +221,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.msm.usb.configfs.rc \
     init.qcom.usb.sh \
+    init.fpdrv_setprop.sh \
     ueventd.qcom.rc \
     fstab.qcom
 

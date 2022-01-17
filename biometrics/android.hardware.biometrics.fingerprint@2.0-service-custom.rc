@@ -1,3 +1,8 @@
+service vendor.fpdrv_setprop /vendor/bin/init.fpdrv_setprop.sh
+    class late_start
+    user system
+    oneshot
+
 service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.0-service-custom
     # "class hal" causes a race condition on some devices due to files created
     # in /data. As a workaround, postpone startup until later in boot once
