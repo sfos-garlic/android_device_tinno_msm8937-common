@@ -182,6 +182,8 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8937 \
     memtrack.msm8937 \
     libdisplayconfig \
+    libdisplayconfig.qti \
+    libdisplayconfig.qti.vendor \
     liboverlay \
     libqdMetaData.system \
     vendor.display.config@2.0 \
@@ -369,7 +371,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power.stats@1.0-service.mock \
     android.hardware.power@1.2.vendor \
     android.hardware.power@1.3.vendor \
-    vendor.qti.hardware.perf@2.0.vendor
+    vendor.qti.hardware.perf@2.2.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
