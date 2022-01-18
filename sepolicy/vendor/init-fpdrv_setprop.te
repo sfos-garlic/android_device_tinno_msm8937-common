@@ -10,5 +10,4 @@ set_prop(init-fpdrv_setprop, vendor_fpdrv_setprop_prop)
 set_prop(init-fpdrv_setprop, ctl_start_prop)
 
 allow init-fpdrv_setprop exported_default_prop:property_service set;
-allow init-fpdrv_setprop sysfs:file getattr;
-
+allow init-fpdrv_setprop sysfs:file { getattr read };
