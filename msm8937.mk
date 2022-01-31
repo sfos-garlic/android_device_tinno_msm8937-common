@@ -285,6 +285,7 @@ PRODUCT_PACKAGES += \
     init.msm.usb.configfs.rc \
     init.qcom.usb.sh \
     init.fpdrv_setprop.sh \
+    init.insmod.sh \
     ueventd.qcom.rc \
     fstab.qcom
 
@@ -426,6 +427,8 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.3.vendor \
     android.hardware.radio@1.4 \
     android.hardware.radio@1.4.vendor \
+    android.hardware.radio@1.5 \
+    android.hardware.radio@1.5.vendor \
     android.hardware.radio.config@1.0 \
     android.hardware.radio.config@1.0.vendor \
     android.hardware.radio.config@1.1 \
@@ -434,8 +437,8 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0 \
     android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.secure_element@1.0 \
-    android.hardware.secure_element@1.0.vendor \
+    android.hardware.secure_element@1.2 \
+    android.hardware.secure_element@1.2.vendor \
     libcnefeatureconfig \
     librmnetctl \
     libxml2

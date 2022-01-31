@@ -209,7 +209,7 @@
 </hal>
 <hal format="hidl" optional="true">
     <name>android.hardware.radio.config</name>
-    <version>1.0</version>
+    <version>1.0-2</version>
     <interface>
         <name>IRadioConfig</name>
         <instance>default</instance>
@@ -226,7 +226,7 @@
 </hal>
 <hal format="hidl" optional="true">
     <name>android.hardware.radio</name>
-    <version>1.0-2</version>
+    <version>1.0-4</version>
     <interface>
         <name>IRadio</name>
         <instance>slot1</instance>
@@ -248,7 +248,7 @@
 </hal>
 <hal format="hidl" optional="true">
     <name>android.hardware.secure_element</name>
-    <version>1.0</version>
+    <version>1.0-2</version>
     <interface>
         <name>ISecureElement</name>
         <instance>SIM1</instance>
@@ -475,6 +475,15 @@
     </interface>
 </hal>
 <hal format="hidl" optional="true">
+    <name>vendor.qti.hardware.data.iwlan</name>
+    <version>1.0</version>
+    <interface>
+        <name>IIWlan</name>
+        <instance>slot1</instance>
+        <instance>slot2</instance>
+    </interface>
+</hal>
+<hal format="hidl" optional="true">
     <name>vendor.qti.hardware.perf</name>
     <version>2.0</version>
     <interface>
@@ -596,7 +605,7 @@
 </hal>
 <hal format="hidl" optional="true">
     <name>vendor.qti.ims.factory</name>
-    <version>1.0</version>
+    <version>1.0-1</version>
     <interface>
         <name>IImsFactory</name>
         <instance>default</instance>
