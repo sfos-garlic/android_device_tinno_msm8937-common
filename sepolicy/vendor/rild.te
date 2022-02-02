@@ -3,3 +3,9 @@ allow rild self:socket ioctl;
 allow rild secure_element:binder call;
 allow rild socket_device:sock_file write;
 allow rild vendor_data_file:file { getattr lock open read };
+
+#Additional policies for QCRILD
+allow rild default_android_hwservice:hwservice_manager { add find };
+
+# Allow binder communication with qtidataservices_app
+allow rild qtidataservices_app:binder call;

@@ -1,3 +1,6 @@
 # fpdrv_setprop
 ro.hardware.fingerprint               u:object_r:vendor_fpdrv_setprop_prop:s0
 persist.sys.fp.goodix                 u:object_r:vendor_fpdrv_setprop_prop:s0
+
+#Netmgrd
+persist.vendor.data.qmipriod_load     u:object_r:vendor_radio_prop:s0
