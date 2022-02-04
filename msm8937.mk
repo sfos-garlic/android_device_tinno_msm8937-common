@@ -143,6 +143,14 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
     libldacBT_bco
 
+# Bpf
+PRODUCT_PROPERTY_OVERRIDES += \
+ifneq ($(TARGET_KERNEL_VERSION),4.9)
+    ro.kernel.ebpf.supported=true
+else
+    ro.kernel.ebpf.supported=false
+endif
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
