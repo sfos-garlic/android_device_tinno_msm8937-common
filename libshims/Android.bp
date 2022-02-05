@@ -18,6 +18,7 @@
 cc_library_shared {
     name: "libcamshim",
     proprietary: true,
+    vendor: true,
     defaults: ["hidl_defaults"],
     srcs: [
         "libshims.cpp",
