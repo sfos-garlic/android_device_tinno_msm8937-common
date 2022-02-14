@@ -5,5 +5,5 @@
 /system/bin/perfservice                                                                           u:object_r:vendor_perfservice_exec:s0
 
 # Goodix Fingerprint
-/vendor/bin/gx_fpd                                                                                u:object_r:vendor_gx_fpd_exec:s0
+#/vendor/bin/gx_fpd                                                                                u:object_r:vendor_gx_fpd_exec:s0
 

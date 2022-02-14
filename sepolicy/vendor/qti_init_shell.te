@@ -15,7 +15,7 @@ allow qti_init_shell system_prop:property_service set;
 #/system/bin/init query property=ro.gpu.available_frequencies
 allow qti_init_shell default_prop:property_service set;
 
-allow qti_init_shell exported3_default_prop:property_service set;
+#allow qti_init_shell exported3_default_prop:property_service set;
 
 #toolbox_exec /system/bin/toybox
 allow qti_init_shell toolbox_exec:file { execute execute_no_trans getattr open read };
