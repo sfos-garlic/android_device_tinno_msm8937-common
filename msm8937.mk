@@ -154,7 +154,7 @@ PRODUCT_PACKAGES += \
     camera.msm8937 \
     libcamshim \
     libui_shim \
-    Camera2
+    Snap
 
 # camera dependencies (libgui/libfui vndk v31)
 PRODUCT_PACKAGES += \
